@@ -1,0 +1,63 @@
+Started GET "/" for ::1 at 2021-07-24 15:42:57 +0000
+  [1m[35m (23.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /var/lib/gems/2.7.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+Processing by BlogsController#index as HTML
+  Rendering blogs/index.html.erb within layouts/application
+  [1m[36mBlog Load (114.2ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  ↳ app/views/blogs/index.html.erb:15
+  Rendered blogs/index.html.erb within layouts/application (166.9ms)
+Completed 200 OK in 2286ms (Views: 2129.4ms | ActiveRecord: 147.9ms)
+
+
+Started GET "/" for ::1 at 2021-07-24 15:47:51 +0000
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /var/lib/gems/2.7.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+Processing by BlogsController#index as HTML
+  Rendering blogs/index.html.erb within layouts/application
+  [1m[36mBlog Load (0.5ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  ↳ app/views/blogs/index.html.erb:15
+  Rendered blogs/index.html.erb within layouts/application (10.1ms)
+Completed 200 OK in 150ms (Views: 140.1ms | ActiveRecord: 3.6ms)
+
+
+Started GET "/blogs/new" for ::1 at 2021-07-24 15:47:54 +0000
+Processing by BlogsController#new as HTML
+  Rendering blogs/new.html.erb within layouts/application
+  Rendered blogs/_form.html.erb (54.3ms)
+  Rendered blogs/new.html.erb within layouts/application (55.3ms)
+Completed 200 OK in 96ms (Views: 95.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/blogs" for ::1 at 2021-07-24 15:47:59 +0000
+Processing by BlogsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"F1d5nKDRhdhXOPO6QAVxKRpD42C+Myc10qGQsvxCyJCYzqV/8BlPdK3xHnqFFM7vYnnHTty6W1KeREp/Cgsbyw==", "blog"=>{"title"=>"djhdjdf", "details"=>"fdjkdjd"}, "commit"=>"Create Blog"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/blogs_controller.rb:27
+  [1m[36mBlog Create (130.6ms)[0m  [1m[32mINSERT INTO "blogs" ("title", "details", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "djhdjdf"], ["details", "fdjkdjd"], ["created_at", "2021-07-24 15:47:59.309410"], ["updated_at", "2021-07-24 15:47:59.309410"]]
+  ↳ app/controllers/blogs_controller.rb:27
+  [1m[35m (119.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/blogs_controller.rb:27
+Redirected to http://localhost:3000/blogs/3
+Completed 302 Found in 253ms (ActiveRecord: 249.7ms)
+
+
+Started GET "/blogs/3" for ::1 at 2021-07-24 15:47:59 +0000
+Processing by BlogsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mBlog Load (0.3ms)[0m  [1m[34mSELECT  "blogs".* FROM "blogs" WHERE "blogs"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/blogs_controller.rb:62
+  Rendering blogs/show.html.erb within layouts/application
+  Rendered blogs/show.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 44ms (Views: 10.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/blogs" for ::1 at 2021-07-24 15:48:00 +0000
+Processing by BlogsController#index as HTML
+  Rendering blogs/index.html.erb within layouts/application
+  [1m[36mBlog Load (0.4ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  ↳ app/views/blogs/index.html.erb:15
+  Rendered blogs/index.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 28ms (Views: 26.4ms | ActiveRecord: 0.4ms)
+
+
+  [1m[36mBlog Load (29.7ms)[0m  [1m[34mSELECT  "blogs".* FROM "blogs" LIMIT $1[0m  [["LIMIT", 11]]
